@@ -1,0 +1,19 @@
+{
+  "name": "skill-sharing-website",
+  "version": "1.0.0",
+  "description": "Chapter 21 from Eloquent JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mallett002/Skill-Sharing-Website.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mallett002/Skill-Sharing-Website/issues"
+  },
+  "homepage": "https://github.com/mallett002/Skill-Sharing-Website#readme"
+}
