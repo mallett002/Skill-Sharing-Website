@@ -42,7 +42,7 @@ Content-Length: 72
  "message": "Will you talk about raising a cycle?"}
  ```
 
- ### Long Poling
+ ## Long Poling
  `GET` req may include extra headers to inform server to delay response.
  Use `ETag` and `If-None-Match` headers usually for managing caching.
 
@@ -53,14 +53,14 @@ Content-Length: 72
  - Value is same as `ETag`'s
 
  #### How it works
- - If resource hasn't changed, server response is `304 "Not Modified"`.
+ - If resource hasn't changed  (`ETag` version is same as `If-None-Match` version), server response is `304 "Not Modified"`.
  - This tells client the cached version is still current.
  - If tag does not match, server responds as normal.
 
  #### Our Server
  - Instead of immediately returning `304`, server will stall response.
  - Responds only when something changed, or given amount of time elapsed.
- - Long polling reqs will have header `Prefer: wait=90`. 
+ - Long polling reqs will have header `Prefer: wait=90`, normal reqs will not have this header. 
  - Tells server that the client will wait up to 90 seconds for response.
 
  *The server will keep a version # that it updates every time the takls change, and will use that as the ETag value.*
@@ -70,9 +70,10 @@ Content-Length: 72
 GET /talks HTTP/1.1
 If-None-Match: "4"
 Prefer: wait=90
+```
+(time passes), server responds
 
-(time passes)
-
+```
 HTTP/1.1 200 OK
 Content-Type: application/json
 ETag: "5"
