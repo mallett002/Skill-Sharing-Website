@@ -17,16 +17,16 @@ module.exports = class Router {
     }
 
     // resolve requests with "resolve method"
-    // returns resp when handler is found, or null
+    // returns resp when handler is found (by calling the handler), or null
     // tries routes one at a time
     // Context will be server instance.
     resolve(context, request) {
         let path = parse(request.url).pathname;
 
         for(let {method, url, handler} of this.routes) {
-            let match = url.exec(path);
-            if (!match || request.method !== method) continue; // if no match, or req.method isn't same as this method, go to next item
-            let urlParts = match.slice(1).map(decodeURIComponent); // array of decoded urls
+            let urlMatch = url.exec(path);
+            if (!urlMatch || request.method !== method) continue; // if no match, or req.method isn't same as this method, go to next item
+            let urlParts = urlMatch.slice(1).map(decodeURIComponent); // array of decoded urls
             return handler(context, ...urlParts, request); // call handler, which returns a response
         }
         return null;
