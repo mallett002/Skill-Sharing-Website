@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/mallett002/Skill-Sharing-Website/issues"
   },
-  "homepage": "https://github.com/mallett002/Skill-Sharing-Website#readme"
+  "homepage": "https://github.com/mallett002/Skill-Sharing-Website#readme",
+  "dependencies": {
+    "ecstatic": "^3.3.0"
+  }
 }
