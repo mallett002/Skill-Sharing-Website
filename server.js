@@ -40,7 +40,7 @@ class SkillShareServer {
         });
     }
 
-    start() {
+    start(port) {
         this.server.listen(port);
     }
 
