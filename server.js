@@ -6,8 +6,6 @@
 const {createServer} = require('http');
 const Router = require('./router');
 const ecstatic = require('ecstatic');
-
-// create instance of Router class
 const router = new Router();
 const defaultHeaders = {"Content-Type": "text/plain"};
 
@@ -49,5 +47,10 @@ class SkillShareServer {
     }
 }
 
-// handlers return promises that resolve into objs describing the response
-// it wraps the server in an obj that also holds its state
+// Handlers return promises that resolve into objs describing the response.
+// It wraps the server in an obj that also holds its state
+
+module.exports = {
+    router,
+    SkillShareServer
+};

@@ -23,7 +23,7 @@ module.exports = class Router {
     resolve(context, request) {
         let path = parse(request.url).pathname;
 
-        for(let {method, url, handler} of this.routes) {
+        for (let {method, url, handler} of this.routes) {
             let urlMatch = url.exec(path);
             if (!urlMatch || request.method !== method) continue; // if no match, or req.method isn't same as this method, go to next item
             let urlParts = urlMatch.slice(1).map(decodeURIComponent); // array of decoded urls
