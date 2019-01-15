@@ -2,7 +2,6 @@ const {router} = require('./server');
 const talkPath = /^\/talks\/([^\/]+)$/;
 const readStream = require('./readStream');
 
-// PUT handler-------------------------------------------------------------
 // Needs to read request bodies, check if has "presenter" & "summary" properties
 router.add("PUT", talkPath, async (server, title, request) => {
     let requestBody = await readStream(request);    

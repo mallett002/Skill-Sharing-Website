@@ -1,4 +1,3 @@
-// DELETE handler-------------------------------------------------------
 // Removes it from the "talks" object
 const {router} = require('./server');
 const talkPath = /^\/talks\/([^\/]+)$/;

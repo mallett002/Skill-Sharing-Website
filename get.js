@@ -1,4 +1,3 @@
-// GET handler----------------------------------------------------------
 // Each talk accessed at "/talks/[title]"
 // look up talk and respond with talk's JSON or 404
 const {router} = require('./server');
