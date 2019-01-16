@@ -6,7 +6,7 @@ Chapt 21 from Eloquent JavaScript
 [{"title": "Unituning",
   "presenter": "Jamal",
   "summary": "Modifying your cycle for extra style",
-  "comments": []}]}
+  "comments": []}]
 ```
 
 ### Creating new talks done by making **PUT** requests to `"/talks/talk-title"`

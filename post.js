@@ -1,3 +1,5 @@
+// For Adding a comment to existing talk
+
 const {router} = require('./server');
 const readStream = require('./readStream');
 const postUrl = /^\/talks\/([^\/]+)\/comments$/;

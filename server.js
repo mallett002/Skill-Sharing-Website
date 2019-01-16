@@ -50,6 +50,9 @@ class SkillShareServer {
 // Handlers return promises that resolve into objs describing the response.
 // It wraps the server in an obj that also holds its state
 
+// Server will serve files from the public subdirectory alongside a talk-managing interface under the "/talks" URL.
+new SkillShareServer(Object.create(null)).start(8000);
+
 module.exports = {
     router,
     SkillShareServer

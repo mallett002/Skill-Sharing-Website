@@ -1,3 +1,5 @@
+// For requests the GET a single talk
+
 // Each talk accessed at "/talks/[title]"
 // look up talk and respond with talk's JSON or 404
 const {router} = require('./server');
@@ -15,5 +17,19 @@ router.add("GET", talkPath, async (server, title) => {
     } else {
         // Not found, respond with a 404
         return {status: 404, body: `No talk "${title}" found`};
+    }
+});
+
+// Get Requests for Long Polling 
+router.add("GET", /^\/talks$/, async (server, request) => {
+    let tag = /"(.*)"/.exec(request.headers["if-none-match"]);
+    let wait = /\bwait=(\d+)/.exec(request.headers["prefer"]);
+
+    if (!tag || tag[1] !== server.version) {
+        return server.talkResponse();  
+    } else if (!wait) {
+        return {status: 304}; // 304 Not Modified
+    } else {
+        return server.waitForChanges(Number(wait[1]));
     }
 });
