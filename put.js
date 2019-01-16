@@ -1,3 +1,5 @@
+// For creating new talks
+
 const {router} = require('./server');
 const talkPath = /^\/talks\/([^\/]+)$/;
 const readStream = require('./readStream');
