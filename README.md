@@ -63,7 +63,7 @@ Content-Length: 72
  - Long polling reqs will have header `Prefer: wait=90`, normal reqs will not have this header. 
  - Tells server that the client will wait up to 90 seconds for response.
 
- *The server will keep a version # that it updates every time the takls change, and will use that as the ETag value.*
+ *The server will keep a version # that it updates every time the talks change, and will use that as the ETag value.*
 
  Example Client Req:
  ```

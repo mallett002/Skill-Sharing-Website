@@ -5,6 +5,7 @@
 const {router} = require('./server');
 const talkPath = /^\/talks\/([^\/]+)$/;
 
+// GET for retrieving JSON about a specific talk
 router.add("GET", talkPath, async (server, title) => {
     // if server.talks has [title]
     if (title in server.talks) {
@@ -20,7 +21,7 @@ router.add("GET", talkPath, async (server, title) => {
     }
 });
 
-// Get Requests for Long Polling 
+// GET Requests for Long Polling 
 router.add("GET", /^\/talks$/, async (server, request) => {
     let tag = /"(.*)"/.exec(request.headers["if-none-match"]);
     let wait = /\bwait=(\d+)/.exec(request.headers["prefer"]);
