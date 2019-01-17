@@ -5,8 +5,8 @@
 // handler func passed to createServer to create a server that only serves files
 const {createServer} = require('http');
 const Router = require('./router');
-const ecstatic = require('ecstatic');
 const router = new Router();
+const ecstatic = require('ecstatic');
 const defaultHeaders = {"Content-Type": "text/plain"};
 
 class SkillShareServer {

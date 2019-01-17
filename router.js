@@ -26,7 +26,7 @@ module.exports = class Router {
         for (let {method, url, handler} of this.routes) {
             let urlMatch = url.exec(path);
             if (!urlMatch || request.method !== method) continue; // if no match, or req.method isn't same as this method, go to next item
-            let urlParts = urlMatch.slice(1).map(decodeURIComponent); // array of decoded urls
+            let urlParts = urlMatch.slice(1).map(decodeURIComponent); // [talk-title]
             return handler(context, ...urlParts, request); // call handler, which returns a response
         }
         return null;
